@@ -1,0 +1,1 @@
+# thedayisuicide.github.io
