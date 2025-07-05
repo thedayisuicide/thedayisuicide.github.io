@@ -95,7 +95,7 @@
       // Set this to false if you want to decouple this synchronization from
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+      config.matchWebGLToCanvasSize = false;
 
       // If you would like all file writes inside Unity Application.persistentDataPath
       // directory to automatically persist so that the contents are remembered when
@@ -133,16 +133,17 @@
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
+  document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
+}).then((unityInstance) => {
+  document.querySelector("#unity-loading-bar").style.display = "none";
 
-              }).catch((message) => {
-                alert(message);
-              });
+  document.querySelector("#unity-fullscreen-button").onclick = () => {
+    unityInstance.SetFullscreen(1);
+  };
+}).catch((message) => {
+  alert(message);
+});
+
             };
 
       document.body.appendChild(script);
