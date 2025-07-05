@@ -6,6 +6,37 @@
     <title>Unity Web Player | Tomorrowitch</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #unity-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+  }
+
+  #unity-canvas {
+    aspect-ratio: 16 / 10; /* 💡 QUAN TRỌNG: TỶ LỆ CAMERA */
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    background: black;
+  }
+</style>
+
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -70,7 +101,7 @@
       // Set this to false if you want to decouple this synchronization from
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
-      config.matchWebGLToCanvasSize = false;
+      config.matchWebGLToCanvasSize = true;
 
       // If you would like all file writes inside Unity Application.persistentDataPath
       // directory to automatically persist so that the contents are remembered when
